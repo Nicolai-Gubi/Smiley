@@ -1,0 +1,28 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Smiley Oversigt";
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Firmanavn:</th>
+            <th scope="col">Adresse:</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var _company in Model.Companies)
+        {
+                <tr>
+                <td> <index-smiley smiley-id="_company.SmileyCurrent"></index-smiley></td>
+                    <td>@_company.Name</td>
+                    <td>@_company.Address</td>
+                    <td><a asp-page="Detail" asp-route-id="@_company.Id" class="btn btn-secondary">Læs mere...</a></td>
+                </tr>
+        }
+    </tbody>
+</table>
+

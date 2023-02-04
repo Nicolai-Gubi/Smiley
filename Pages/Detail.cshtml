@@ -1,0 +1,33 @@
+﻿@page "{Id:int}"
+@model Smileys.Pages.DetailModel
+@{
+    ViewData["Title"] = "Firma detaljer";
+}
+
+<h3>@ViewData["Title"]</h3>
+<hr />
+
+<div class="card mb-3 border-success" style="max-width: 50rem">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <card-header-smiley smiley-id="@Model.Company.SmileyCurrent"></card-header-smiley>
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h3 class="card-title">Firma - @Model.Company?.Name</h3>
+                <p class="card-text"><small class="text-muted">CVR: @Model.Company.Cvr</small></p>
+                <p class="card-subtitle"><b>Adresse:</b> @Model.Company.Address</p>
+                <br/>
+                <div class="card-text">Dataene på denne side er indhentet fra Fødevarestyrelsen.</div>
+                <p class="card-text"><b>Tidligere Smileys:</b></p>
+                <p class="card-text">
+                    <card-prev-smiley smiley-id="@Model.Company.Smiley1"></card-prev-smiley>
+                    <card-prev-smiley smiley-id="@Model.Company.Smiley2"></card-prev-smiley>
+                    <card-prev-smiley smiley-id="@Model.Company.Smiley3"></card-prev-smiley>
+                </p>
+                <a asp-page="Index" class="btn btn-success">Retur</a>
+            </div>
+        </div>
+    </div>
+</div>
+
